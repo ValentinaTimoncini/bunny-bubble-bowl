@@ -31,7 +31,7 @@ async function x_build(x_currhash){
 
     //NAVBAR
     if(document.getElementById("nav").innerHTML.length === 0) {
-        let x_navbar_response = await fetch('/components/navbar.html')
+        let x_navbar_response = await fetch(x_repo+'/components/navbar.html')
         let x_navbar_html = await x_navbar_response.text()
         document.getElementById("nav").insertAdjacentHTML('afterbegin', x_navbar_html)
     }
