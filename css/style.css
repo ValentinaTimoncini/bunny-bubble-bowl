@@ -1,0 +1,52 @@
+:root{
+    --white: #ffffff;
+    --pink: rgb(255, 122, 145);
+    --pinkbg: rgba(255, 136, 156, 0.2);
+    --bg: #fff8f8;
+    --text: #000000;
+    --gray: #808080;
+}
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::-moz-selection { /* Code for Firefox */
+    color: var(--bg);
+    background: var(--pink);
+}
+
+::selection {
+    color: var(--bg);
+    background: var(--pink);
+}
+/*GENERAL CSS*/
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+mark{
+    background-color: transparent;
+    color: var(--pink);
+}
+/*LOADER*/
+#loader{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    background: var(--bg);
+}
+@font-face {
+    font-family: 'Poppins';
+    src: url(/fonts/Poppins-Regular.ttf) format('truetype');
+}
