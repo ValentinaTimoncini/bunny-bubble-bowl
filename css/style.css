@@ -45,7 +45,23 @@ mark{
     pointer-events: none;
     z-index: 1000;
     background: var(--bg);
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
+#loader .bunny img{
+    width: 100vw;
+    max-width: 500px;
+}
+@keyframes infiniteScroll {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, 0);
+    }
+  }
+  
 @font-face {
     font-family: 'Poppins';
     src: url(/fonts/Poppins-Regular.ttf) format('truetype');

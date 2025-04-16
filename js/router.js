@@ -28,7 +28,7 @@ x_build(x_currentHash)
 */
 async function x_build(x_currhash){
     await x_start_laoding()
-
+    window.location.hash = x_currhash
     //NAVBAR
     if(document.getElementById("nav").innerHTML.length === 0) {
         let x_navbar_response = await fetch(x_repo+'/components/navbar.html')
