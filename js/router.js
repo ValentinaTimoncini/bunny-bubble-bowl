@@ -66,7 +66,7 @@ async function x_build(x_currhash){
     x_script.src = x_repo+"/js/"+x_site.x_script;
     document.body.append(x_script);
 
-    x_stop_laoding()
+    //x_stop_laoding()
 }
 async function x_start_laoding(){
     let x_loader_response = await fetch(x_repo+'/components/loader.html')
