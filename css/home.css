@@ -24,6 +24,7 @@ body{
     color: var(--white);
     position: absolute;
     z-index: 3;
+    white-space: nowrap;
 }
 #title1{
     top: 30%;
@@ -112,13 +113,20 @@ body{
     height: 100vh;
 }
 #header{
-    background-image: url(/bunny-bubble-bowl/images/jumbo.webp);
+    background-image: url(/bunny-bubble-bowl/images/jumbo.jpg);
     background-size: cover;
+    background-position: center;
     z-index: 2;
     position: relative;
     clip-path: polygon(50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)));
-    filter: brightness(.8);
     animation: openJumbo 4.5s cubic-bezier(0.67, 0, 0.175, 1) both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header .wrapper{
+    width: 95vw;
+    max-width: 500px;
 }
 #header .play-button{
     aspect-ratio: 1/1;
@@ -130,6 +138,8 @@ body{
     box-shadow: 0 0 0 0 rgb(255 255 255 / 49%);
     animation: pulse 2s infinite;
     align-self: flex-end;
+    margin-top: 80px;
+    cursor: pointer;
 }
 #header .play-button img{
     height: 100%;
@@ -138,11 +148,42 @@ body{
     filter: brightness(0) invert(1);
 }
 #header .title{
-    font-size: clamp(4rem, 6vw, 8rem);
+    font-size: clamp(4rem, 8vw, 10rem);
     font-weight: 100;
-    color: var(--pink);
+    color: var(--white);
+    position: relative;
 }
-#header .fade-in-2{
+#header .fade-in-1{
     opacity: 0;
-    animation: fade-in .5s linear .66s;
+    animation: fade-in .5s linear calc(2.5s + .33s) forwards;
+    display: inline;
 }
+#header .fade-in-2 {
+    position: absolute;
+    left: calc(100% + 20px);
+    top : calc(100% - 20px);
+}
+#header .fade-in-2 img{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + .66s) forwards;
+    transform: rotate(200deg);
+}
+#header .fade-in-3{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + .99s) forwards;
+}
+#header .fade-in-4{
+    position: absolute;
+    right: calc(100%);
+    top : calc(100% - 20px);
+}
+#header .fade-in-4 img{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + 1.22s) forwards;
+    transform: rotate(40deg);
+}
+#header .fade-in-5{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + 1.55s) forwards;
+}
+
