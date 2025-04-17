@@ -25,7 +25,7 @@
 /*GENERAL CSS*/
 body{
     font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden!important;
 }
 a{
     text-decoration: none;
@@ -129,8 +129,8 @@ mark{
     padding: 10px;
     border-radius: 50%;
     overflow: hidden;
-    -webkit-transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
-    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+    -webkit-transition: left .3s cubic-bezier(.17, .67, .3, 1.33);
+    transition: left .3s cubic-bezier(.17, .67, .3, 1.33);
     user-select: none;
 }
 .navbar.active .logo{
