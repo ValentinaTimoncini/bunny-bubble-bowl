@@ -1,0 +1,242 @@
+:root{
+    --svh: 1vh;
+    --top: 1px;
+    --lvh: 1vw;
+}
+body{
+    height: 100vh;
+    background-color: var(--bg);
+}
+#jumbo{
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    padding: 100px 0;
+    background-color: var(--pink);
+}
+.floating-title{
+    font-size: clamp(3rem, 5vw, 7rem);
+    font-weight: 400;
+    color: var(--white);
+    position: absolute;
+    z-index: 3;
+    white-space: nowrap;
+}
+#title1{
+    top: 30%;
+    left: 20vw;
+    animation: floating-right 2.5s cubic-bezier(0.67, 0, 0.175, 1) both, fade-out 1s cubic-bezier(0.67, 0, 0.175, 1) 2.5s both;
+}
+#title2{
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20vw;
+    animation: floating-left 2.5s cubic-bezier(0.67, 0, 0.175, 1) both, fade-out 1s cubic-bezier(0.67, 0, 0.175, 1) 2.5s both;
+}
+#title3{
+    bottom: 30%;
+    left: 20vw;
+    animation: floating-right 2.5s cubic-bezier(0.67, 0, 0.175, 1) both, fade-out 1s cubic-bezier(0.67, 0, 0.175, 1) 2.5s both;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+    }
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+@keyframes openJumbo {
+    0% {
+        clip-path: polygon(50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)));
+    }
+    33.33% {
+        clip-path: polygon(calc(50% - (25vw / 2)) calc(50 * var(--svh) + var(--top) - (25vw / 2)), calc(50% + (25vw / 2)) calc(50 * var(--svh) + var(--top) - (25vw / 2)), calc(50% + (25vw / 2)) calc(50 * var(--svh) + var(--top) + (25vw / 2)), calc(50% - (25vw / 2)) calc(50 * var(--svh) + var(--top) + (25vw / 2)));
+
+    }
+    66.67% {
+        clip-path: polygon(0 var(--top), 100% var(--top), 100% calc(100 * var(--lvh)), 0 calc(100 * var(--lvh)));
+
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+}
+@keyframes floating-right {
+    0% {
+        left: 20vw;
+    }
+    100% {
+        left: 80vw;
+        transform: translateX(-100%);
+
+    }
+}
+@keyframes floating-left {
+    0% {
+        right: 20vw;
+    }
+    100% {
+        right: 80vw;
+        transform: translateY(-50%) translateX(100%);
+
+    }
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.slide-size{
+    height: 100vh;
+}
+#header{
+    background-image: url(../images/jumbo.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 2;
+    position: relative;
+    clip-path: polygon(50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)), 50% calc(50 * var(--svh) + var(--top)));
+    animation: openJumbo 4.5s cubic-bezier(0.67, 0, 0.175, 1) both;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#header .wrapper{
+    width: 95vw;
+    max-width: 500px;
+}
+#header .play-button{
+    aspect-ratio: 1/1;
+    width: 70px;
+    padding: 10px;
+    margin: 0 auto;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgb(255 255 255 / 49%);
+    animation: pulse 2s infinite;
+    align-self: flex-end;
+    margin-top: 80px;
+    cursor: pointer;
+}
+#header .play-button img{
+    height: 100%;
+    width: 100%;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+#header .title{
+    font-size: clamp(4rem, 8vw, 10rem);
+    font-weight: 100;
+    color: var(--white);
+    position: relative;
+}
+#header .fade-in-1{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + .33s) forwards;
+    display: inline;
+}
+#header .fade-in-2 {
+    position: absolute;
+    left: calc(100% + 20px);
+    top : calc(100% - 20px);
+}
+#header .fade-in-2 img{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + .66s) forwards;
+    transform: rotate(200deg);
+}
+#header .fade-in-3{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + .99s) forwards;
+}
+#header .fade-in-4{
+    position: absolute;
+    right: calc(100%);
+    top : calc(100% - 20px);
+}
+#header .fade-in-4 img{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + 1.22s) forwards;
+    transform: rotate(40deg);
+}
+#header .fade-in-5{
+    opacity: 0;
+    animation: fade-in .5s linear calc(2.5s + 1.55s) forwards;
+}
+/*POKE*/
+#poke-slide{
+    display: flex;
+    position: relative;
+    z-index: 4;
+    justify-content: space-between;
+    padding: 0 40px;
+    align-items: center;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+#poke-slide .descr{
+    width: 50%;
+}
+.poke{
+    width: 50%;
+    height: 50%;
+    transform: translateX(20px) rotate(20deg);
+}
+.poke.visible{
+    transform: translateX(0) rotate(0);
+}
+.poke img{
+    height: 100%;
+    aspect-ratio: 1/1;
+    display: block;
+    margin: 0 0 0 auto;
+}
+.section-title{
+    font-size: 3rem;
+}
+.section-descr{
+    font-size: 1.2rem;
+}
+.section-btn{
+    border: 2px solid var(--pink);
+    border-radius: 20px;
+    padding: 10px 30px;
+    font-size: 2rem;
+    color: var(--white);
+    text-shadow: 2px 0 var(--pink), -2px 0 var(--pink), 0 -2px var(--pink), 0 2px var(--pink),
+    1px 1px var(--pink), -1px -1px var(--pink), 1px -1px var(--pink), -1px 1px var(--pink);
+    margin: 20px 0;
+    display: inline-block;
+    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+    background-color: var(--white);
+}
+.section-btn:hover{
+    background-color: var(--pink);
+    color: var(--pink);
+    text-shadow: 2px 0 var(--white), -2px 0 var(--white), 0 -2px var(--white), 0 2px var(--white),
+    1px 1px var(--white), -1px -1px var(--white), 1px -1px var(--white), -1px 1px var(--white);
+    transform: rotate(-5deg);
+}
+

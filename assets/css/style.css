@@ -1,0 +1,197 @@
+:root{
+    --white: #ffffff;
+    --pink: #ff7a91;
+    --pinkbg: rgba(255, 136, 156, 0.2);
+    --bg: #fae9e9;
+    --text: #000000;
+    --gray: #808080;
+}
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::-moz-selection { /* Code for Firefox */
+    color: var(--bg);
+    background: var(--pink);
+}
+
+::selection {
+    color: var(--bg);
+    background: var(--pink);
+}
+/*GENERAL CSS*/
+body{
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+}
+a{
+    text-decoration: none;
+}
+img{
+    display: block;
+}
+mark{
+    background-color: transparent;
+    color: var(--pink);
+}
+/*LOADER*/
+#loader{
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    pointer-events: none;
+    z-index: 1000;
+    background: var(--bg);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+#loader .bunny img{
+    width: 100vw;
+    max-width: 500px;
+}
+/*END LOADER*/
+/*NAVBAR*/
+.navbar{
+    background: var(--white);
+    border: 1px solid var(--pink);
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    border-radius: 50px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    padding: 3px 3px 3px 0;
+    cursor: pointer;
+    z-index: 5;
+    -webkit-transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+}
+.hamburger-toggle{
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding-left: calc((60px - 22px) / 2);
+}
+.hamburger{
+    position: relative;
+    z-index: 2;
+}
+.hamburger::before{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    top: -4px;
+    left: 0;
+    background-color: var(--text);
+    -webkit-transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+}
+.hamburger::after{
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 2px;
+    top: 4px;
+    left: 0;
+    background-color: var(--text);
+    -webkit-transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+}
+.navbar.active{
+    width: 68px;
+    padding: 3px;
+}
+.navbar.active .hamburger::before{
+    transform: rotate(-45deg);
+    top: 0;
+}
+.navbar.active .hamburger::after{
+    transform: rotate(45deg);
+    top: 0;
+}
+.navbar .logo{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-transition: left .3s cubic-bezier(.17, .67, .3, 1.33);
+    transition: left .3s cubic-bezier(.17, .67, .3, 1.33);
+    user-select: none;
+}
+.navbar.active .logo{
+    position: absolute;
+    left: 100%;
+    opacity: 0;
+}
+.navbar .logo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.navbar-menu{
+    position: absolute;
+    width: 250px;
+    background-color: var(--white);
+    list-style: none;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    border: 1px solid var(--pink);
+    border-radius: 33px;
+    text-align: center;
+    clip-path: ellipse(0% 0% at 100% 0%);
+    -webkit-transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+    transition-delay: 0s;
+    padding: 60px 0 20px;
+}
+.navbar.active .navbar-menu{
+    clip-path: ellipse(150% 150% at 100% 0%);
+    transition-delay: .3s;
+}
+.navbar-menu li{
+    font-size: 2rem;
+    padding: 10px;
+    -webkit-transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+}
+.navbar-menu li a{
+    text-decoration: none;
+    color: var(--pink);
+}
+.navbar-menu li:hover{
+    background-color: var(--pinkbg);
+    font-weight: bold;
+}
+
+/*END NAVBAR*/
+/*ANIMATION*/
+.scroll-fade-in{
+    opacity: 0;
+    -webkit-transition: all .6s linear;
+    -o-transition: all .6s linear;
+    transition: all .6s linear;
+    transform: translateY(-20px);
+}
+.fade-left{
+    transform: translateX(-20px);
+}
+.scroll-fade-in.visible{
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*END ANIMATION*/
+@font-face {
+    font-family: 'Poppins';
+    src: url(../fonts/Poppins-Regular.ttf) format('truetype');
+}

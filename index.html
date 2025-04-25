@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/style.css" data-default="1">
+    <link rel="stylesheet" href="./assets/css/home.css" data-default="1">
+    <title>HOME | Bunny Bubble Bowl</title>
+  </head>
+  <body>
+    <div id="loader">
+        <div class="bunny">
+            <img src="./assets/images/bunny.gif" alt="bunny running">
+        </div>
+    </div>
+    <nav id="nav">
+        <div class="navbar" onclick="this.classList.toggle('active')">
+            <div class="hamburger-toggle">
+                <div class="hamburger"></div>
+            </div>
+            <div class="logo"><img src="./assets/images/logo.png" alt=""></div>    
+            <ul class="navbar-menu">
+                <li><a href="/">HOME</a></li>
+                <li><a href="./views/poke.html">POKE</a></li>
+                <li><a href="./views/bubble.html">BUBBLE TEA</a></li>
+            </ul>
+        </div>        
+    </nav>
+    <main id="app">
+        <div id="jumbo"></div>
+        <h1 class="floating-title" id="title1">Bunny</h1>
+        <h1 class="floating-title" id="title2">Bubble</h1>
+        <h1 class="floating-title" id="title3">& Bowl</h1>
+        <div id="header" class="slide-size">
+            <div class="wrapper">
+                <p class="title fade-in-1">Bunny<span class="fade-in-2"><img src="./assets/images/jumbo-link.svg" alt="white curve"></span></p>
+                <p class="title fade-in-3">Bubble<span class="fade-in-4"><img src="./assets/images/jumbo-link.svg" alt="white curve"></span></p>
+                <p class="title fade-in-5">Bowl</p>
+                <div class="play-button fade-in-6">
+                    <img src="./assets/images/logo.png" draggable="false" alt="logo">
+                </div>    
+            </div>
+        </div>
+        <section class="slide-size" id="poke-slide">
+            <div class="scroll-fade-in fade-left descr">                
+                <h2 class="section-title">Prova i nostri <mark>Poke</mark></h2>
+                <p class="section-descr">Componi e divora la tua <mark>poke bowl</mark> preferita nel nostro fantastico giardino zen pieno di <mark>coniglietti</mark>!</p>
+                <a href="./views/poke.html" class="section-btn">Scopri</a>
+            </div>
+            <div class="poke scroll-fade-in">
+                <img src="./assets/images/poke.png" alt="poke img" draggable="false">
+            </div>
+        </section>
+    </main>
+    <footer id="foot"></footer>
+    <script src="./assets/js/animation.js"></script>
+    <script>
+        document.querySelectorAll(".play-button").forEach((btn, i)=>{
+            btn.addEventListener('click', ()=>{
+                nextSlide(i+1)
+            })
+        })
+        function nextSlide(index){
+            window.scrollTo({
+                top: window.innerHeight * index,
+                left: 0,
+                behavior: 'smooth'
+            })
+        }
+    </script>
+  </body>
+</html>
