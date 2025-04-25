@@ -109,6 +109,7 @@ body{
 }
 .slide-size{
     height: 100vh;
+    position: relative;
 }
 #header{
     background-image: url(../images/jumbo.jpg);
@@ -126,7 +127,7 @@ body{
     width: 95vw;
     max-width: 500px;
 }
-#header .play-button{
+.play-button{
     aspect-ratio: 1/1;
     width: 70px;
     padding: 10px;
@@ -139,7 +140,7 @@ body{
     margin-top: 80px;
     cursor: pointer;
 }
-#header .play-button img{
+.play-button img{
     height: 100%;
     width: 100%;
     display: block;
@@ -185,9 +186,8 @@ body{
     animation: fade-in .5s linear calc(2.5s + 1.55s) forwards;
 }
 /*POKE*/
-#poke-slide{
+.menu-slide{
     display: flex;
-    position: relative;
     z-index: 4;
     justify-content: space-between;
     padding: 0 40px;
@@ -196,13 +196,16 @@ body{
     max-width: 1100px;
     margin: 0 auto;
 }
+.menu-slide .play-button{
+    filter: invert(1);
+}
 #poke-slide .descr{
     width: 50%;
 }
 .poke{
     width: 50%;
     height: 50%;
-    transform: translateX(20px) rotate(20deg);
+    transform: translateX(90px) rotate(20deg);
 }
 .poke.visible{
     transform: translateX(0) rotate(0);

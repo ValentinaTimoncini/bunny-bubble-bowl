@@ -177,17 +177,18 @@ mark{
 /*ANIMATION*/
 .scroll-fade-in{
     opacity: 0;
-    -webkit-transition: all .6s linear;
-    -o-transition: all .6s linear;
-    transition: all .6s linear;
-    transform: translateY(-20px);
+    -webkit-transition: all .6s linear .5s;
+    -o-transition: all .6s linear .5s;
+    transition: all .6s linear .5s;
 }
 .fade-left{
-    transform: translateX(-20px);
+    transform: translateX(-30px);
+}
+.fade-left.visible{
+    transform: translate(0);
 }
 .scroll-fade-in.visible{
     opacity: 1;
-    transform: translateY(0);
 }
 
 /*END ANIMATION*/
