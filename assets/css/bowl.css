@@ -1,0 +1,112 @@
+.cart{
+    border: 2px solid var(--pink);
+    border-radius: 5px;
+    background-color: var(--white);
+    padding: 10px;
+    font-size: 2rem;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 5;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    -webkit-transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+}
+.cart svg{
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--pink);
+}
+.cart:hover{
+    background-color: var(--pink);
+}
+.cart:hover svg{
+    fill: var(--white);
+}
+.shop-title{
+    text-align: center;
+    padding-top: 80px
+}
+.size-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 20px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 10px;
+}
+.size{
+    flex-grow: 1;
+    text-align: center;
+}
+.size label{
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    padding-left: 5px;
+}
+.size label .size-dimension{
+    font-weight: lighter;
+}
+.size .price{
+    font-size: 1.4rem;
+}
+/*MENU*/
+#ingredients{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 70px;
+    text-align: center;
+}
+.ingr-wrapper{
+    margin-bottom: 80px;
+    border: 2px dashed var(--pink);
+    border-radius: 15px;
+}
+.ingr-title{
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: var(--pink);
+    font-weight: bold;
+    position: relative;
+    top: -1.9rem;
+    background-color: #fae9e9;
+    display: inline-block;
+    padding: 0 17px;
+}
+.ingr-list{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 10px;
+    padding: 10px;
+}
+.ingr-list .ingr{
+    width: 150px;
+}
+.ingr-btn{
+    width: 100%;
+    display: block;
+    aspect-ratio: 1/1;
+    border-width: 0;
+    border-color: var(--pink);
+    border-style: solid;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    cursor: pointer;
+    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);    
+}
+.ingr.active .ingr-btn{
+    border-width: 4px;
+}
+.ingr-img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

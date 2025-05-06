@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/bowl.css" type="text/css">
+    <title>POKE | Bunny Bubble Bowl</title>
+  </head>
+  <body>
+    <div id="loader">
+        <div class="bunny">
+            <img src="../assets/images/bunny.gif" alt="bunny running">
+        </div>
+    </div>
+    <nav id="nav">
+        <div class="navbar" onclick="this.classList.toggle('active')">
+            <div class="hamburger-toggle">
+                <div class="hamburger"></div>
+            </div>
+            <div class="logo"><img src="../assets/images/logo.png" alt=""></div>    
+            <ul class="navbar-menu">
+                <li><a href="/">HOME</a></li>
+                <li><a href="./bowl.html">POKE</a></li>
+                <li><a href="./bubble.html">BUBBLE TEA</a></li>
+                <li><a href="./bunny.html">BUNNY</a></li>
+                <li><a href="./staff.html">STAFF</a></li>
+                <li><a href="./galleria.html">GALLERIA</a></li>
+                <li><a href="./contatti.html">CONTATTI</a></li>
+                <li><a href="./storia.html">STORIA</a></li>
+            </ul>
+        </div>        
+    </nav>
+    <main id="app">
+        <div class="cart">
+            <a href="./carrello.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8,3V7H21l-2,7H8v2H18a1,1,0,0,1,0,2H7a1,1,0,0,1-1-1V4H4A1,1,0,0,1,4,2H7A1,1,0,0,1,8,3ZM6,20.5A1.5,1.5,0,1,0,7.5,19,1.5,1.5,0,0,0,6,20.5Zm9,0A1.5,1.5,0,1,0,16.5,19,1.5,1.5,0,0,0,15,20.5Z"/></svg></a>
+        </div>
+        <h1 class="shop-title">Componi la tua Bowl</h1>
+        <div class="menu">
+            <div class="size-wrapper">
+                <div class="size">
+                    <input type="radio" name="size" value="small" id="small">
+                    <label for="small">PICCOLA <span class="size-dimension">500ml</span></label>
+                    <p class="size-descr"><b>1</b> Proteina - <b>3</b> Condimenti <br> <b>1</b> topping - <b>1</b> salsa</p>
+                    <p class="price">€&nbsp;&nbsp;&nbsp;8,90</p>
+                </div>
+                <div class="size">
+                    <input type="radio" name="size" value="medium" id="medium">
+                    <label for="medium">MEDIA <span class="size-dimension">750ml</span></label>
+                    <p class="size-descr"><b>2</b> Proteina - <b>4</b> Condimenti <br> <b>2</b> topping - <b>2</b> salsa</p>
+                    <p class="price">€&nbsp;&nbsp;&nbsp;10,90</p>
+                </div>
+                <div class="size">
+                    <input type="radio" name="size" value="big" id="big">
+                    <label for="big">GRANDE <span class="size-dimension">1000ml</span></label>
+                    <p class="size-descr"><b>3</b> Proteina - <b>5</b> Condimenti <br> <b>2</b> topping - <b>2</b> salsa</p>
+                    <p class="price">€&nbsp;&nbsp;&nbsp;12,90</p>
+                </div>
+            </div>
+            <div id="ingredients"></div>    
+        </div>
+    </main>
+    <footer id="foot">
+        <h2>Bunny Bubble Bowl</h2>
+        <h1> Ogni giorno un tocco di freschezza. <br>Consigli leggeri, bubble tea da sogno e poke bowl tutte da creare.</h1>
+        <button class="scrollTop" onClick="window.scrollTo({top:0, behavior:'smooth'})">
+            &#94;
+        </button>
+    </footer>
+    <script src="../assets/js/animation.js"></script>
+    <script>
+        //elenco delle sezioni
+        const sections = [
+            {
+                code: 'B',
+                name: 'Base'
+            },
+            {
+                code: 'P',
+                name: 'Proteine'
+            },
+            {
+                code: 'C',
+                name: 'Condimenti'
+            },
+            {
+                code: 'S',
+                name: 'Salse'
+            },
+            {
+                code: 'T',
+                name: 'Toppings'
+            }
+        ]
+        //elenco degli ingredienti
+        const ingrs = [
+            {
+                section: 'B',
+                name: 'Riso Venere',
+                img: 'riso-venere.jpg'
+            },
+            {
+                section: 'B',
+                name: 'Riso Sushi',
+                img: 'riso-sushi.jpg'
+            },
+            {
+                section: 'B',
+                name: 'Insalata Mista',
+                img: 'mista.jpg'
+            },
+            {
+                section: 'P',
+                name: 'Salmone',
+                img: 'salmone.webp'
+            },
+            {
+                section: 'P',
+                name: 'Salmone Cotto',
+                img: 'salmone-cotto.avif'
+            },
+            {
+                section: 'P',
+                name: 'Tonno',
+                img: 'tonno.webp'
+            },
+            {
+                section: 'P',
+                name: 'Surimi',
+                img: 'surimi.webp'
+            },
+            {
+                section: 'P',
+                name: 'Pollo',
+                img: 'pollo.jpg'
+            },
+            {
+                section: 'P',
+                name: 'Polpo',
+                img: 'polpo.webp'
+            },
+            {
+                section: 'C',
+                name: 'Carote',
+                img: 'carote.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Cipolla',
+                img: 'cipolla.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Zucchine',
+                img: 'zucchine.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Pomodori',
+                img: 'pomodori.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Avocado',
+                img: 'avocado.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Ananas',
+                img: 'ananas.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Mirtilli',
+                img: 'mirtilli.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Fragole',
+                img: 'fragola.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Bambù',
+                img: 'bambu.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Funghi',
+                img: 'funghi.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Mozzarella',
+                img: 'mozzarella.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Mais',
+                img: 'mais.webp'
+            },
+            {
+                section: 'C',
+                name: 'Edamame',
+                img: 'edamame.jpg'
+            },
+            {
+                section: 'C',
+                name: 'Mango',
+                img: 'mango.jpg'
+            },
+            {
+                section: 'S',
+                name: 'Salsa Rosa',
+                img: 'rosa.webp'
+            },
+            {
+                section: 'S',
+                name: 'Salsa Yogurt',
+                img: 'yogurt.jpg'
+            },
+            {
+                section: 'S',
+                name: 'Salsa Avocado',
+                img: 'salsa-avocado.webp'
+            },
+            {
+                section: 'S',
+                name: 'Salsa Soia',
+                img: 'soia.jpg'
+            },
+            {
+                section: 'S',
+                name: 'Salsa Teriyaki',
+                img: 'teriyaki.avif'
+            },
+            {
+                section: 'T',
+                name: 'Arachidi',
+                img: 'arachidi.jpg'
+            },
+            {
+                section: 'T',
+                name: 'Anacardi',
+                img: 'anacardi.jpg'
+            },
+            {
+                section: 'T',
+                name: 'Pistacchio',
+                img: 'pistacchi.webp'
+            },
+            {
+                section: 'T',
+                name: 'Cipolla Croccante',
+                img: 'cipolla-croccante.jpeg'
+            },
+            {
+                section: 'T',
+                name: 'Sesamo Nero',
+                img: 'sesamo.jpg'
+            },
+        ]
+        //costruzione dell'html
+        sections.forEach(section=>{
+            let html = `
+            <section class="ingr-wrapper">
+                <p class="ingr-title">${section.name}</p>
+                <ul class="ingr-list">
+            `
+            ingrs.forEach((ingr, index)=>{
+                if(ingr.section === section.code){
+                    html += `
+                    <li class="ingr" id="ingr-${index}" data-section="${section.code}">
+                        <button class="ingr-btn">
+                            <img class="ingr-img" src="../assets/images/ingrs/${ingr.img}" alt="${ingr.name}" draggable="false">
+                        </button>
+                        <p class="ingr-name">${ingr.name}</p>
+                    </li>`
+                }
+            })
+            html += `               
+                    </ul>
+                </section>
+            `
+            document.getElementById("ingredients").insertAdjacentHTML("beforeend", html)
+        })
+        //assegnazione evento click ad ogni bottone
+        document.querySelectorAll('.ingr').forEach(el=>{
+            document.querySelector("#"+el.id+" .ingr-btn").addEventListener('click', ()=>{
+                selectIngr(el.id)
+            })
+        })
+        //funzione per selezionare o deselezionare l'ingrediente
+        function selectIngr(id){
+            //se è selezionato lo deseleziono
+            if(document.getElementById(id).classList.contains("active")){
+                document.getElementById(id).classList.remove("active")
+                return
+            }
+            //altrimenti controllo se posso selezionarlo
+            let vincoli = getVincoli()
+            if(!vincoli){
+                alert("Si prega di selezionare prima la dimensione della bowl <3!")
+                return
+            }
+            let allIngrs = getSelected(),
+                selectable = false,
+                section = document.getElementById(id).dataset.section,
+                counter = 0
+            allIngrs.forEach(ingr=>{
+                if(ingr.section === section){
+                    counter++
+                }
+            })
+            selectable = counter < vincoli[section.toLowerCase()]
+            if(selectable){
+                document.getElementById(id).classList.add("active")
+            } else {
+                alert("Numero massimo di ingredienti selezionati.")
+            }
+        }
+        //controlla se il formato è selezionato, e ne restituisco i vincoli
+        function getVincoli(){
+            let sizeInput = document.querySelector(".size input:checked")
+            if(!sizeInput){
+                return false
+            }
+            let size = sizeInput.value,
+                vincoli = {b:1}
+            switch(size){
+                case 'small':
+                    vincoli.p = 1
+                    vincoli.c = 3
+                    vincoli.t = 1
+                    vincoli.s = 1
+                    break
+                case 'medium':
+                    vincoli.p = 2
+                    vincoli.c = 4
+                    vincoli.t = 2
+                    vincoli.s = 2
+                    break
+                case 'big':
+                    vincoli.p = 3
+                    vincoli.c = 5
+                    vincoli.t = 2
+                    vincoli.s = 2
+                    break
+            }
+            return vincoli
+        }
+        //ottengo la situazione di tutti gli ingredienti selezionati
+        function getSelected(){
+            let ingrs = []
+            document.querySelectorAll(".ingr.active").forEach(ingr=>{
+                ingrs.push({
+                    id: ingr.id,
+                    section: ingr.dataset.section
+                })
+            })
+            return ingrs
+        }
+    </script>
+  </body>
+</html>

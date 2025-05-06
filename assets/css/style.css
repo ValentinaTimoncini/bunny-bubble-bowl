@@ -26,6 +26,7 @@
 body{
     font-family: 'Poppins', sans-serif;
     overflow-x: hidden;
+    background-color: var(--pinkbg);
 }
 a{
     text-decoration: none;
@@ -212,8 +213,20 @@ mark{
 .scroll-fade-in.visible{
     opacity: 1;
 }
-
 /*END ANIMATION*/
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--pink);
+    border-radius: 50%;
+    outline: none;
+    background-color: white;
+    cursor: pointer;
+}
+input[type="radio"]:checked {
+    background-color: var(--pink);
+}
 @font-face {
     font-family: 'Poppins';
     src: url(../fonts/Poppins-Regular.ttf) format('truetype');
