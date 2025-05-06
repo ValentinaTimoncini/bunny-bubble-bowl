@@ -172,8 +172,30 @@ mark{
     background-color: var(--pinkbg);
     font-weight: bold;
 }
-
 /*END NAVBAR*/
+/*FOOTER*/
+    .scrollTop{
+        border: 2px solid var(--pink);
+        border-radius: 5px;
+        background-color: var(--white);
+        padding: 6px 10px 10px;
+        color: var(--pink);
+        font-size: 2rem;
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        z-index: 5;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+        -webkit-transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+        transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+    }
+    .scrollTop:hover{
+        background-color: var(--pink);
+        color: var(--white);
+    }
+    
+/*END FOOTER*/
 /*ANIMATION*/
 .scroll-fade-in{
     opacity: 0;

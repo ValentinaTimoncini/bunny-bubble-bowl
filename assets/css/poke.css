@@ -1,0 +1,31 @@
+.cart{
+    border: 2px solid var(--pink);
+    border-radius: 5px;
+    background-color: var(--white);
+    padding: 10px;
+    font-size: 2rem;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    z-index: 5;
+    aspect-ratio: 1/1;
+    cursor: pointer;
+    -webkit-transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+    transition: all .5s cubic-bezier(.17, .67, .3, 1.33);
+}
+.cart svg{
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: var(--pink);
+}
+.cart:hover{
+    background-color: var(--pink);
+}
+.cart:hover svg{
+    fill: var(--white);
+}
+.shop-title{
+    text-align: center;
+    padding-top: 30px
+}
