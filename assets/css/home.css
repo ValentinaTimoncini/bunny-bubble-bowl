@@ -221,24 +221,4 @@ body{
 .section-descr{
     font-size: 1.2rem;
 }
-.section-btn{
-    border: 2px solid var(--pink);
-    border-radius: 20px;
-    padding: 10px 30px;
-    font-size: 2rem;
-    color: var(--white);
-    text-shadow: 2px 0 var(--pink), -2px 0 var(--pink), 0 -2px var(--pink), 0 2px var(--pink),
-    1px 1px var(--pink), -1px -1px var(--pink), 1px -1px var(--pink), -1px 1px var(--pink);
-    margin: 20px 0;
-    display: inline-block;
-    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
-    background-color: var(--white);
-}
-.section-btn:hover{
-    background-color: var(--pink);
-    color: var(--pink);
-    text-shadow: 2px 0 var(--white), -2px 0 var(--white), 0 -2px var(--white), 0 2px var(--white),
-    1px 1px var(--white), -1px -1px var(--white), 1px -1px var(--white), -1px 1px var(--white);
-    transform: rotate(-5deg);
-}
 

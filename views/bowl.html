@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
     <link rel="stylesheet" href="../assets/css/bowl.css" type="text/css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
     <title>POKE | Bunny Bubble Bowl</title>
   </head>
   <body>
@@ -20,7 +21,7 @@
             </div>
             <div class="logo"><img src="../assets/images/logo.png" alt=""></div>    
             <ul class="navbar-menu">
-                <li><a href="/">HOME</a></li>
+                <li><a href="/bunny-bubble-bowl">HOME</a></li>
                 <li><a href="./bowl.html">POKE</a></li>
                 <li><a href="./bubble.html">BUBBLE TEA</a></li>
                 <li><a href="./bunny.html">BUNNY</a></li>
@@ -57,7 +58,8 @@
                     <p class="price">€&nbsp;&nbsp;&nbsp;12,90</p>
                 </div>
             </div>
-            <div id="ingredients"></div>    
+            <div id="ingredients"></div>
+            <p class="prezzo-wrapper">Prezzo: <span id="prezzo">__,__€</span><button id="addCart" class="section-btn" onclick="addCart()">Aggiungi al carrello</button></p>
         </div>
     </main>
     <footer id="foot">
@@ -298,15 +300,22 @@
                 return
             }
             //altrimenti controllo se posso selezionarlo
-            let vincoli = getVincoli()
-            if(!vincoli){
+            let sizeInput = document.querySelector(".size input:checked"),
+                size = sizeInput.value
+            
+            if(!size){
                 alert("Si prega di selezionare prima la dimensione della bowl <3!")
                 return
+            } else {
+                setPrice(size)
             }
-            let allIngrs = getSelected(),
+
+            let vincoli = getVincoli(size),
+                allIngrs = getSelected(),
                 selectable = false,
                 section = document.getElementById(id).dataset.section,
                 counter = 0
+            console.log(vincoli)
             allIngrs.forEach(ingr=>{
                 if(ingr.section === section){
                     counter++
@@ -320,13 +329,8 @@
             }
         }
         //controlla se il formato è selezionato, e ne restituisco i vincoli
-        function getVincoli(){
-            let sizeInput = document.querySelector(".size input:checked")
-            if(!sizeInput){
-                return false
-            }
-            let size = sizeInput.value,
-                vincoli = {b:1}
+        function getVincoli(size){
+            let vincoli = {b:1}
             switch(size){
                 case 'small':
                     vincoli.p = 1
@@ -359,6 +363,23 @@
                 })
             })
             return ingrs
+        }
+        function setPrice(size){
+            let price = 0
+            switch (size) {
+                case 'medium':
+                    price = 10.9
+                    break
+                case 'big':
+                    price = 12.9
+                    break
+                default:
+                    price = 8.9
+            }
+            document.getElementById("prezzo").innerText = price.toFixed(2).replace(".", ",")+" €"
+        }
+        function addCart(){
+            top.location.href = "./carrello.html"
         }
     </script>
   </body>
