@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/galleria.css" type="text/css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+    <title>GALLERIA | Bunny Bubble Bowl</title>
+  </head>
+  <body>
+    <div id="loader">
+        <div class="bunny">
+            <img src="../assets/images/bunny.gif" alt="bunny running">
+        </div>
+    </div>
+    <nav id="nav">
+        <div class="navbar" onclick="this.classList.toggle('active')">
+            <div class="hamburger-toggle">
+                <div class="hamburger"></div>
+            </div>
+            <div class="logo"><img src="../assets/images/logo.png" alt=""></div>    
+            <ul class="navbar-menu">
+                <li><a href="/bunny-bubble-bowl">HOME</a></li>
+                <li><a href="./bowl.html">POKE</a></li>
+                <li><a href="./bubble.html">BUBBLE TEA</a></li>
+                <li><a href="./bunny.html">BUNNY</a></li>
+                <li><a href="./staff.html">STAFF</a></li>
+                <li><a href="./galleria.html">GALLERIA</a></li>
+                <li><a href="./contatti.html">CONTATTI</a></li>
+                <li><a href="./storia.html">STORIA</a></li>
+            </ul>
+        </div>        
+    </nav>
+    <main id="app">
+        <div id="gallery">
+            <h1>Ecco i fantastici coniglietti che troverai nel nostro negozietto</h1>
+            <ul>
+                
+            </ul>
+        </div>
+    </main>
+    <footer id="foot">
+        <div class="foot-head">
+            <div class="foot-logo">
+                <img src="../assets/images/logo.png" alt="bbb logo">
+                <h2>Bunny Bubble Bowl</h2>
+            </div>
+            <ul class="foot-menu">
+                <li class="main-link" onclick="top.location.href = '/bunny-bubble-bowl'">HOME</li>
+                <li class="main-link" onclick="top.location.href = './views/bowl.html'">POKE</li>
+                <li class="main-link" onclick="top.location.href = './views/bubble.html'">BUBBLE TEA</li>
+            </ul>
+            <ul class="foot-menu">
+                <li class="main-link" onclick="top.location.href = './views/bunny.html'">BUNNY</li>
+                <li class="main-link" onclick="top.location.href = './views/galleria.html'">GALLERIA</li>
+                <li class="main-link" onclick="top.location.href = './views/storia.html'">STORIA</li>
+            </ul>
+            <ul class="foot-menu">
+                <li class="main-link" onclick="top.location.href = './views/staff.html'">STAFF</li>
+                <li class="main-link" onclick="top.location.href = './views/contatti.html'">CONTATTI</li>
+            </ul>
+        </div>
+        <p> Ogni giorno un tocco di freschezza. <br>Consigli leggeri, bubble tea da sogno e poke bowl tutte da creare.</p>
+        <p class="copyright">Tutti i diritti riservati a Bunny Bubble & Bowl 2025 | Powered with love by Sabrina Usvelli</p>
+        <button class="scrollTop" onClick="window.scrollTo({top:0, behavior:'smooth'})">
+            &#94;
+        </button>
+    </footer>
+    <script src="../assets/js/animation.js"></script>
+    <script>
+        const images = [
+            'betty-daphne.jpg',
+            'betty-daphne2.jpg',
+            'betty-meili-petra.jpg',
+            'betty-meili-petra2.jpg',
+            'betty-meili.jpg',
+            'betty.jpg',
+            'betty2.jpg',
+            'bunnies.jpg',
+            'daphne.jpg',
+            'duchessa.jpg',
+            'meili1.jpg',
+            'meili2.jpg',
+            'meili3.jpg',
+            'meili4.jpg',
+            'pandora.jpg',
+            'petra.jpg',
+            'priscilla.jpg',
+            'subaru-typhon.jpg',
+            'typhon1.jpg',
+            'typhon2.jpg',
+            'typhon3.jpg',
+            'typhon4.jpg'
+        ]
+        images.forEach(img=>{
+            let li = `
+                <li class="gallery-item"><img src="../assets/images/bunnies/${img}" alt="gallery image" loading="lazy" draggable="false"></li>
+            `
+            document.querySelector("#gallery ul").insertAdjacentHTML("beforeend", li)
+        })
+    </script>
+  </body>
+</html>
