@@ -185,6 +185,7 @@ mark{
 /*FOOTER*/
 #foot{
     color: var(--pink);
+    padding-bottom: 2rem;
 }
 .foot-head{
     display: flex;
