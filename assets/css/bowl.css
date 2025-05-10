@@ -93,16 +93,17 @@
     display: block;
     aspect-ratio: 1/1;
     border-width: 0;
-    border-color: var(--pink);
+    border-color: var(--white);
     border-style: solid;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     cursor: pointer;
-    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);    
+    transition: all .3s cubic-bezier(.17, .67, .3, 1.33);
+    background-color: var(--pink);    
 }
 .ingr.active .ingr-btn{
-    border-width: 4px;
+    border-width: 8px;
 }
 .ingr-img{
     display: block;

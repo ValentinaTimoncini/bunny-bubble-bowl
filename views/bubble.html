@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/bowl.css" type="text/css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
+    <title>BUBBLE | Bunny Bubble Bowl</title>
+  </head>
+  <body>
+    <div id="loader">
+        <div class="bunny">
+            <img src="../assets/images/bunny.gif" alt="bunny running">
+        </div>
+    </div>
+    <nav id="nav">
+        <div class="navbar" onclick="this.classList.toggle('active')">
+            <div class="hamburger-toggle">
+                <div class="hamburger"></div>
+            </div>
+            <div class="logo"><img src="../assets/images/logo.png" alt=""></div>    
+            <ul class="navbar-menu">
+                <li><a href="/bunny-bubble-bowl">HOME</a></li>
+                <li><a href="./bowl.html">POKE</a></li>
+                <li><a href="./bubble.html">BUBBLE TEA</a></li>
+                <li><a href="./bunny.html">BUNNY</a></li>
+                <li><a href="./staff.html">STAFF</a></li>
+                <li><a href="./galleria.html">GALLERIA</a></li>
+                <li><a href="./contatti.html">CONTATTI</a></li>
+                <li><a href="./storia.html">STORIA</a></li>
+            </ul>
+        </div>        
+    </nav>
+    <main id="app">
+        <div class="cart">
+            <a href="./carrello.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8,3V7H21l-2,7H8v2H18a1,1,0,0,1,0,2H7a1,1,0,0,1-1-1V4H4A1,1,0,0,1,4,2H7A1,1,0,0,1,8,3ZM6,20.5A1.5,1.5,0,1,0,7.5,19,1.5,1.5,0,0,0,6,20.5Zm9,0A1.5,1.5,0,1,0,16.5,19,1.5,1.5,0,0,0,15,20.5Z"/></svg></a>
+        </div>
+        <h1 class="shop-title">Componi il tuo Bubble Tea</h1>
+        <div class="menu">
+            <div class="size-wrapper">
+                <div class="size">
+                    <input type="radio" name="size" value="small" id="small" checked>
+                    <label for="small">Bubble Tea Classico <span class="size-dimension">500ml</span></label>
+                    <p class="size-descr"><b>1</b> Guarnizione omaggio - Guarnizione extra: 0,50€</p>
+                    <p class="price">€&nbsp;&nbsp;&nbsp;5,00</p>
+                </div>
+            </div>
+            <div id="ingredients"></div>
+            <p class="prezzo-wrapper">Prezzo: <span id="prezzo">__,__€</span><button id="addCart" class="section-btn" onclick="addCart()">Aggiungi al carrello</button></p>
+        </div>
+    </main>
+    <footer id="foot">
+        <h2>Bunny Bubble Bowl</h2>
+        <h1> Ogni giorno un tocco di freschezza. <br>Consigli leggeri, bubble tea da sogno e poke bowl tutte da creare.</h1>
+        <button class="scrollTop" onClick="window.scrollTo({top:0, behavior:'smooth'})">
+            &#94;
+        </button>
+    </footer>
+    <script src="../assets/js/animation.js"></script>
+    <script>
+        //elenco delle sezioni
+        const sections = [
+            {
+                code: 'G',
+                name: 'Gusti'
+            },
+            {
+                code: 'B',
+                name: 'Guarnizioni'
+            }
+        ]
+        //elenco degli ingredienti
+        const ingrs = [
+            {
+                section: 'B',
+                name: 'Aloe Vera',
+                img: 'b_aloe.png',
+            },
+            {
+                section: 'B',
+                name: 'Budino',
+                img: 'b_budino.png',
+            },
+            {
+                section: 'B',
+                name: 'Semi di chia',
+                img: 'b_chia.png',
+            },
+            {
+                section: 'B',
+                name: 'Perle di frutta',
+                img: 'b_frutta.png',
+            },
+            {
+                section: 'B',
+                name: 'Gelatina di Cocco Gusto Fragola',
+                img: 'b_jelly.png',
+            },
+            {
+                section: 'B',
+                name: 'Tapioca',
+                img: 'b_tapioca.png',
+            },
+            {
+                section: 'G',
+                name: 'Fragola',
+                img: 'g_fragola.png'
+            },
+            {
+                section: 'G',
+                name: 'Ananas',
+                img: 'g_ananas.png', 
+            },
+            {
+                section: 'G',
+                name: 'Mela verde',
+                img: 'g_apple.png', 
+            },
+            {
+                section: 'G',
+                name: 'Lampone',
+                img: 'g_lampone.png', 
+            },
+            {
+                section: 'G',
+                name: 'Limone',
+                img: 'g_lemon.png', 
+            },
+            {
+                section: 'G',
+                name: 'Lychee',
+                img: 'g_lychee.png', 
+            },
+            {
+                section: 'G',
+                name: 'Mango',
+                img: 'g_mango.png', 
+            },
+            {
+                section: 'G',
+                name: 'Frutto della passione',
+                img: 'g_passion.png', 
+            },
+            {
+                section: 'G',
+                name: 'Pesca',
+                img: 'g_peach.png', 
+            },
+            {
+                section: 'G',
+                name: 'Rosa',
+                img: 'g_rose.png', 
+            },
+            {
+                section: 'G',
+                name: 'Cocomero',
+                img: 'g_watermelon.png', 
+            }
+        ]
+        
+        //costruzione dell'html
+        sections.forEach(section=>{
+            let html = `
+            <section class="ingr-wrapper">
+                <p class="ingr-title">${section.name}</p>
+                <ul class="ingr-list">
+            `
+            ingrs.forEach((ingr, index)=>{
+                if(ingr.section === section.code){
+                    html += `
+                    <li class="ingr" id="ingr-${index}" data-section="${section.code}">
+                        <button class="ingr-btn">
+                            <img class="ingr-img" src="../assets/images/bubbles/${ingr.img}" alt="${ingr.name}" draggable="false">
+                        </button>
+                        <p class="ingr-name">${ingr.name}</p>
+                    </li>`
+                }
+            })
+            html += `               
+                    </ul>
+                </section>
+            `
+            document.getElementById("ingredients").insertAdjacentHTML("beforeend", html)
+        })
+        //assegnazione evento click ad ogni bottone
+        document.querySelectorAll('.ingr').forEach(el=>{
+            document.querySelector("#"+el.id+" .ingr-btn").addEventListener('click', ()=>{
+                selectIngr(el.id)
+            })
+        })
+        //funzione per selezionare o deselezionare l'ingrediente
+        function selectIngr(id){
+            //se è selezionato lo deseleziono
+            if(document.getElementById(id).classList.contains("active")){
+                document.getElementById(id).classList.remove("active")
+                let bubbleSelected = 0,
+                    isGustoSelected = false,
+                    allIngrs = getSelected(),
+                    section = document.getElementById(id).dataset.section
+
+                allIngrs.forEach(ingr=>{
+                    if(ingr.section === "G"){
+                        isGustoSelected = true
+                    } else {
+                        bubbleSelected++
+                    }
+                })
+                if(isGustoSelected){
+                    setPrice(bubbleSelected)
+                } else {
+                    document.getElementById("prezzo").innerText = "__,__ €"
+                }
+                return
+            }
+
+            let vincoli = {
+                    g: 1,
+                    b: 4
+                },
+                allIngrs = getSelected(),
+                selectable = false,
+                section = document.getElementById(id).dataset.section,
+                counter = 0,
+                isGustoSelected = false,
+                bubbleSelected = 0
+
+            allIngrs.forEach(ingr=>{
+                if(ingr.section === "G"){
+                    isGustoSelected = true
+                } else {
+                    bubbleSelected++
+                }
+                if(ingr.section === section){
+                    counter++
+                }
+            })
+            if(section === 'G') {
+                isGustoSelected = true
+            } else {
+                bubbleSelected++
+            }
+            selectable = counter < vincoli[section.toLowerCase()]
+            if(selectable){
+                document.getElementById(id).classList.add("active")
+                if(isGustoSelected && bubbleSelected > 0) {
+                    setPrice(bubbleSelected)
+                }
+            } else {
+                alert("Numero massimo di ingredienti selezionati.")
+            }
+        }
+        //ottengo la situazione di tutti gli ingredienti selezionati
+        function getSelected(){
+            let ingrs = []
+            document.querySelectorAll(".ingr.active").forEach(ingr=>{
+                ingrs.push({
+                    id: ingr.id,
+                    section: ingr.dataset.section
+                })
+            })
+            return ingrs
+        }
+        function setPrice(bubbleSelected){
+            let price = 5
+            if(bubbleSelected > 1){
+                price += (bubbleSelected-1) * 0.5
+            }
+            document.getElementById("prezzo").innerText = price.toFixed(2).replace(".", ",")+" €"
+        }
+        function addCart(){
+            top.location.href = "./carrello.html"
+        }
+    </script>
+  </body>
+</html>

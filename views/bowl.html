@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="../assets/css/bowl.css" type="text/css">
     <link rel="shortcut icon" href="../assets/images/logo.png" type="image/x-icon">
     <title>POKE | Bunny Bubble Bowl</title>
+    <style>
+        .ingr-btn{
+            border-color: var(--pink);
+        }
+    </style>
   </head>
   <body>
     <div id="loader">
@@ -300,22 +305,19 @@
                 return
             }
             //altrimenti controllo se posso selezionarlo
-            let sizeInput = document.querySelector(".size input:checked"),
-                size = sizeInput.value
-            
-            if(!size){
+            let sizeInput = document.querySelector(".size input:checked")
+            if(!sizeInput){
                 alert("Si prega di selezionare prima la dimensione della bowl <3!")
                 return
             } else {
-                setPrice(size)
+                setPrice(sizeInput.value)
             }
 
-            let vincoli = getVincoli(size),
+            let vincoli = getVincoli(sizeInput.value),
                 allIngrs = getSelected(),
                 selectable = false,
                 section = document.getElementById(id).dataset.section,
                 counter = 0
-            console.log(vincoli)
             allIngrs.forEach(ingr=>{
                 if(ingr.section === section){
                     counter++
