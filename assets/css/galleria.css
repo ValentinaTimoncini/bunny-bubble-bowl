@@ -6,10 +6,12 @@
     list-style: none;
     flex-wrap: wrap;
     padding: 1rem 10px 1rem;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 .gallery-item{
     flex-grow: 1;
-    max-width: 400px;
+    max-width: calc((1100px / 3) - 14px);
     aspect-ratio: 1/1;
 }
 .gallery-item img{
