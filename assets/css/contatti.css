@@ -1,0 +1,91 @@
+#app{
+    height: 100vh;
+    display: flex;
+}
+.contatti{
+    max-width: 800px;
+    width: 100%;
+    margin: auto;
+    border: 3px solid var(--pink);
+    border-radius: 10px;
+    padding: 40px 20px 100px;
+    text-align: center;
+    position: relative;
+}
+.contatti-logo{
+    height: 200px;
+    aspect-ratio: 1/1;
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 50px;
+    margin: 0 auto;
+}
+.contatti-logo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.contatti-title{
+    margin-top: 1.5rem;
+    color: var(--pink);
+    font-size: 3rem;
+}
+.contatti-subtitle{
+    color: var(--pink);
+    font-size: 1.3rem;
+}
+.info{
+    margin-top: 2rem;
+    list-style: none;
+}
+.info li{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin: 20px 0;
+}
+.info-logo{
+    height: 50px;
+    aspect-ratio: 1/1;    
+}
+.info-logo img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.info-value{
+    height: 50px;
+    border-radius: 10px;
+    background-color: var(--pink);
+    text-align: center;
+    padding: 10px 20px;
+    color: var(--white);
+}
+.sparkle{
+    position: absolute;
+    height: 140px;
+    bottom: 0;
+    right: 20px;
+    transform: rotateY(180deg);
+}
+.sparkle img{
+    height: 100%;
+}
+.sparkle:nth-of-type(2){
+    left: 20px;
+    right: revert;
+    transform: rotateY(0);
+}
+.sparkle:nth-of-type(3){
+    top: 0;
+    bottom: revert;
+    transform: rotate(180deg);
+}
+.sparkle:nth-of-type(4){
+    left: 20px;
+    right: revert;
+    top: 0;
+    bottom: revert;
+    transform: rotate(180deg) rotateY(180deg);
+}

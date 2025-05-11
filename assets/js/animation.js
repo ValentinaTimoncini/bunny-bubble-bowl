@@ -1,5 +1,6 @@
 setTimeout(()=>{
     document.getElementById("loader").remove()
+    fadeIn()
 }, 500)
 window.addEventListener('scroll', ()=>{
     fadeIn()

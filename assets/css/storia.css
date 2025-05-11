@@ -1,0 +1,71 @@
+#app{
+    max-width: 1100px;
+    margin: 5rem auto 0;
+    text-align: center;
+    padding: 0 20px;
+}
+main img{
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    max-width: 600px;
+    border-radius: 10px;
+    border: 2px solid var(--pink);
+    transition: all .33s ease-in;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+main img:hover{
+    border-width: 10px;
+}
+.descr{
+    margin: 2rem 0;
+}
+.timeline{
+    padding: 50px 0;
+    list-style: none;
+    border-left: 5px solid var(--pink);
+    margin-bottom: 2rem;
+    position: relative;
+    left: 50%;
+}
+.timeline::after{
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: -12px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--pink);
+}
+.timeline li{
+    text-align: left;
+    position: relative;
+    padding-left: 45px;
+    margin: 3rem 0;
+}
+.timeline li::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 4px;
+    background-color: var(--pink);
+}
+.timeline li:nth-of-type(2n+1){
+    transform: translateX(-100%);
+    padding-left: 0;
+    padding-right: 45px;
+    text-align: right;
+}
+.timeline li:nth-of-type(2n+1)::before{
+    left: revert;
+    right: 0;
+}
+.bunnies{
+    max-width: 300px;
+}

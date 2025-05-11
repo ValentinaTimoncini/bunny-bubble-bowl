@@ -1,3 +1,65 @@
+#app{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 5rem 20px 0;
+}
+.jumbo{
+    display: flex;
+    padding: 20px 0;
+}
+.jumbo:nth-of-type(2n+1){
+    flex-direction: row-reverse;
+}
+.main-image{
+    width: 40%;
+}
+.sabrina{
+    border-radius: 14px;
+    border: 2px solid var(--pink);
+    transition: all .33s ease-in;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+.sabrina:hover{
+    border-width: 10px;
+}
+.content{
+    width: 60%;
+    padding: 0 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+h1{
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 10px;
+}
+.descr{
+    padding-top: 30px;
+    padding-left: 50px;
+    position: relative;
+    line-height: 30px;
+}
+.section-name{
+    letter-spacing: 10px;
+    position: absolute;
+    right: calc(100% - 50px);
+    top: 70px;
+    transform: rotate(90deg) translateY(-50%);
+}
+.section-name::after{
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    width: 40px;
+    height: 2px;
+    background-color: var(--text);
+    transform: translateY(-50%);
+}
 .proofs{
     margin: 20px 0;
     display: flex;
